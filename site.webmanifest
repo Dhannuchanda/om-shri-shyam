@@ -1,0 +1,20 @@
+{
+  "name": "Om Shri Shyam Manpower Service",
+  "short_name": "Om Shri Shyam",
+  "description": "Household staff, childcare, patient care and nursing support in Gurugram.",
+  "lang": "en-IN",
+  "dir": "ltr",
+  "display": "standalone",
+  "background_color": "#fffdfa",
+  "theme_color": "#9b2335",
+  "start_url": "./",
+  "scope": "./",
+  "icons": [
+    {
+      "src": "oss_svg.svg",
+      "type": "image/svg+xml",
+      "sizes": "any",
+      "purpose": "any maskable"
+    }
+  ]
+}

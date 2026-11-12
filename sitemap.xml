@@ -1,9 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9">
-  <url>
-    <loc>https://omshrishyam.in/</loc>
-    <lastmod>2026-11-11</lastmod>
-    <changefreq>monthly</changefreq>
-    <priority>1.0</priority>
-  </url>
+  <url><loc>https://omshrishyam.in/</loc><lastmod>2026-11-12</lastmod><changefreq>monthly</changefreq><priority>1.0</priority></url>
+  <url><loc>https://omshrishyam.in/maid-services-gurugram/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://omshrishyam.in/housekeeping-services-gurugram/</loc><changefreq>monthly</changefreq><priority>0.9</priority></url>
+  <url><loc>https://omshrishyam.in/japa-maid-gurugram/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://omshrishyam.in/babysitter-gurugram/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://omshrishyam.in/newborn-baby-care-gurugram/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://omshrishyam.in/cook-services-gurugram/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://omshrishyam.in/patient-care-services-gurugram/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://omshrishyam.in/nursing-attendant-gurugram/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://omshrishyam.in/driver-services-gurugram/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://omshrishyam.in/office-housekeeping-gurugram/</loc><changefreq>monthly</changefreq><priority>0.8</priority></url>
+  <url><loc>https://omshrishyam.in/about-us/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://omshrishyam.in/contact-us/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://omshrishyam.in/areas-we-serve/</loc><changefreq>monthly</changefreq><priority>0.7</priority></url>
+  <url><loc>https://omshrishyam.in/faqs/</loc><changefreq>monthly</changefreq><priority>0.6</priority></url>
+  <url><loc>https://omshrishyam.in/blog/</loc><changefreq>monthly</changefreq><priority>0.5</priority></url>
 </urlset>

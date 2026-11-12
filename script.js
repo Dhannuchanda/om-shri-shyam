@@ -9,15 +9,15 @@
   var WHATSAPP_NUMBER = "918700490277";
 
   var SERVICES = [
-    { name: "Newborn & Baby Care", text: "Discuss everyday baby-care support.", tone: "pink", image: "Newborn & Baby Care.jpg" },
-    { name: "Japa Maid", text: "Ask about post-delivery mother and baby support.", tone: "lilac", image: "Japa Maid.jpg" },
-    { name: "Babysitter", text: "Explain childcare schedule and requirements.", tone: "blue", image: "Babysitter.jpg" },
-    { name: "Maid & Housekeeping", text: "Enquire about household chores and cleaning.", tone: "mint", image: "Maid & Housekeeping.jpg" },
-    { name: "Cook", text: "Discuss cooking needs, meal preferences and schedule.", tone: "cream", image: "cook.jpg" },
-    { name: "Driver", text: "Ask about driver availability for daily or family travel.", tone: "blue", image: "Driver.jpg" },
-    { name: "Pantry & Office Help", text: "Enquire about pantry and housekeeping support.", tone: "mint", image: "Pantry & Office Help.jpg" },
-    { name: "Patient Care", text: "Discuss patient-attendant support requirements.", tone: "pink", image: "Patient Care.jpg" },
-    { name: "Nursing Support", text: "Ask about home or hospital nursing; confirm qualifications.", tone: "lilac", image: "Nursing Support.jpg" }
+    { name: "Newborn & Baby Care", slug: "newborn-baby-care-gurugram", text: "Discuss everyday baby-care support.", tone: "pink", image: "Newborn & Baby Care.jpg" },
+    { name: "Japa Maid", slug: "japa-maid-gurugram", text: "Ask about post-delivery mother and baby support.", tone: "lilac", image: "Japa Maid.jpg" },
+    { name: "Babysitter", slug: "babysitter-gurugram", text: "Explain childcare schedule and requirements.", tone: "blue", image: "Babysitter.jpg" },
+    { name: "Maid & Housekeeping", slug: "maid-services-gurugram", text: "Enquire about household chores and cleaning.", tone: "mint", image: "Maid & Housekeeping.jpg" },
+    { name: "Cook", slug: "cook-services-gurugram", text: "Discuss cooking needs, meal preferences and schedule.", tone: "cream", image: "cook.jpg" },
+    { name: "Driver", slug: "driver-services-gurugram", text: "Ask about driver availability for daily or family travel.", tone: "blue", image: "Driver.jpg" },
+    { name: "Pantry & Office Help", slug: "office-housekeeping-gurugram", text: "Enquire about pantry and housekeeping support.", tone: "mint", image: "Pantry & Office Help.jpg" },
+    { name: "Patient Care", slug: "patient-care-services-gurugram", text: "Discuss patient-attendant support requirements.", tone: "pink", image: "Patient Care.jpg" },
+    { name: "Nursing Support", slug: "nursing-attendant-gurugram", text: "Ask about home or hospital nursing; confirm qualifications.", tone: "lilac", image: "Nursing Support.jpg" }
   ];
 
   var FAQS = [
@@ -38,7 +38,7 @@
 
   /* ---------- Build the service cards ---------- */
   var grid = $("#service-grid");
-  SERVICES.forEach(function (item, i) {
+  if (grid) { SERVICES.forEach(function (item, i) {
     var card = document.createElement("article");
     card.className = "service-card tone-" + item.tone;
     card.dataset.index = String(i);
@@ -60,22 +60,24 @@
     image.src = "images/" + item.image;
     image.alt = item.name;
     image.loading = "lazy";
+    image.decoding = "async";
+    image.width = 640;
+    image.height = 360;
 
     var text = document.createElement("p");
     text.textContent = item.text;
 
-    var button = document.createElement("button");
-    button.type = "button";
+    var button = document.createElement("a");
     button.className = "service-cta";
-    button.textContent = "Enquire about this service";
-    button.addEventListener("click", function () { chooseService(i); });
+    button.href = item.slug + "/";
+    button.textContent = "View service details";
 
     card.appendChild(image);
     card.appendChild(top);
     card.appendChild(text);
     card.appendChild(button);
     grid.appendChild(card);
-  });
+  }); }
 
   /* ---------- Fill the service dropdowns ---------- */
   $all("[data-service-select]").forEach(function (select) {
@@ -108,7 +110,7 @@
 
   /* ---------- FAQ accordion ---------- */
   var faqGrid = $("#faq-grid");
-  FAQS.forEach(function (pair, i) {
+  if (faqGrid) { FAQS.forEach(function (pair, i) {
     var item = document.createElement("div");
     item.className = "faq-item";
     item.classList.add("reveal");
@@ -147,7 +149,7 @@
     item.appendChild(button);
     item.appendChild(answer);
     faqGrid.appendChild(item);
-  });
+  }); }
 
   /* ---------- Mobile menu ---------- */
   var toggle = $(".nav-toggle");
@@ -253,10 +255,12 @@
   }
 
   var form = $("#enquiry-form");
-  $all("input, select, textarea", form).forEach(function (field) {
-    field.addEventListener("input", updateWhatsAppLink);
-    field.addEventListener("change", updateWhatsAppLink);
-  });
+  if (form) {
+    $all("input, select, textarea", form).forEach(function (field) {
+      field.addEventListener("input", updateWhatsAppLink);
+      field.addEventListener("change", updateWhatsAppLink);
+    });
+  }
 
   function setError(input, errorId, message) {
     var error = document.getElementById(errorId);
@@ -266,9 +270,9 @@
 
   var today = new Date();
   var iso = today.getFullYear() + "-" + String(today.getMonth() + 1).padStart(2, "0") + "-" + String(today.getDate()).padStart(2, "0");
-  $("#f-date").min = iso;
+  if ($("#f-date")) { $("#f-date").min = iso; }
 
-  form.addEventListener("submit", function (event) {
+  if (form) { form.addEventListener("submit", function (event) {
     event.preventDefault();
     var nameInput = $("#f-name");
     var phoneInput = $("#f-phone");
@@ -297,10 +301,11 @@
     status.textContent = "Thank you. Your enquiry is ready. Tap Continue on WhatsApp to send it to Manoj Kumar.";
     form.dispatchEvent(new CustomEvent("enquiry:ready", { detail: getFormData() }));
     updateWhatsAppLink();
-  });
+  }); }
 
   /* Quick strip at the top of the page: carries its details into the main form */
-  $("#quick-form").addEventListener("submit", function (event) {
+  var quickForm = $("#quick-form");
+  if (quickForm) { quickForm.addEventListener("submit", function (event) {
     event.preventDefault();
     var phone = $("#q-phone");
     var msg = $("#quick-msg");
@@ -323,7 +328,7 @@
     updateWhatsAppLink();
     $("#contact").scrollIntoView({ behavior: "smooth", block: "start" });
     window.setTimeout(function () { $("#f-name").focus({ preventScroll: true }); }, 450);
-  });
+  }); }
 
-  updateWhatsAppLink();
+  if (form) { updateWhatsAppLink(); }
 })();
